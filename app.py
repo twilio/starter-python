@@ -30,8 +30,8 @@ def index():
 def message():
     # Send a text message to the number provided
     message = client.sms.messages.create(to=request.form['to'],
-                                                from_=TWILIO_NUMBER,
-                                                body='Good luck on your Twilio quest!')
+                                         from_=TWILIO_NUMBER,
+                                         body='Good luck on your Twilio quest!')
 
     # Return a message indicating the text message is enroute
     return 'Message on the way!'
@@ -42,7 +42,7 @@ def message():
 def call():
     # Make an outbound call to the provided number from your Twilio number
     call = client.calls.create(to=request.form['to'], from_=TWILIO_NUMBER, 
-                                url='http://twimlets.com/message?Message%5B0%5D=http://demo.kevinwhinnery.com/audio/zelda.mp3')
+                               url='http://twimlets.com/message?Message%5B0%5D=http://demo.kevinwhinnery.com/audio/zelda.mp3')
 
     # Return a message indicating the call is coming
     return 'Call inbound!'
