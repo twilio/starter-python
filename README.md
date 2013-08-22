@@ -1,4 +1,3 @@
-starter-python
-==============
+# Welcome to the Python Guild!
 
-A starter app for Python developers embarking on their first Twilio quest!
+Instructions for setting up this repository are coming soon.
