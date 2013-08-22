@@ -29,7 +29,7 @@ def index():
 @app.route('/message', methods=['POST'])
 def message():
     # Send a text message to the number provided
-    sms = message = client.sms.messages.create(to=request.form['to'],
+    message = client.sms.messages.create(to=request.form['to'],
                                                 from_=TWILIO_NUMBER,
                                                 body='Good luck on your Twilio quest!')
 
