@@ -16,7 +16,7 @@ For Mac and Linux, environment variables can be set by opening a terminal window
 
     export TWILIO_ACCOUNT_SID=ACXXXXXXXXX
     export TWILIO_AUTH_TOKEN=XXXXXXXXX
-    export TWILIO_NUMBER=+16518675309
+    export TWILIO_PHONE_NUMBER=+16518675309
 
 To make these changes persist for every new terminal (on OS X), you can edit the file `~/.bash_profile` to contain the three commands above.  This will set these environment variables for every subsequent session. Once you have edited the file to contain these commands, run `source ~/.bash_profile` in the terminal to set up these variables.
 
@@ -24,7 +24,7 @@ On Windows, the easiest way to set permanent environment variables (as of Window
 
     setx TWILIO_ACCOUNT_SID ACXXXXXXXXX
     setx TWILIO_AUTH_TOKEN XXXXXXXXX
-    setx TWILIO_NUMBER +16518675309
+    setx TWILIO_PHONE_NUMBER +16518675309
 
 ## Running the application
 
