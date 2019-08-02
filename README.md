@@ -8,9 +8,9 @@ We assume that before you begin, you will have [Python](http://www.python.org/) 
 
 Before you can run this project, you will need to set three system environment variables.  These are:
 
-* `TWILIO_ACCOUNT_SID` : Your Twilio "account SID" - it's like your username for the Twilio API.  This and the auth token (below) can be found [on your account dashboard](https://www.twilio.com/user/account).
-* `TWILIO_AUTH_TOKEN` : Your Twilio "auth token" - it's your password for the Twilio API.  This and the account SID (above) can be found [on your account dashboard](https://www.twilio.com/user/account).
-* `TWILIO_NUMBER` : A Twilio number that you own, that can be used for making calls and sending messages.  You can find a list of phone numbers you control (and buy another one, if necessary) [in the account portal](https://www.twilio.com/user/account/phone-numbers/incoming).
+* `TWILIO_ACCOUNT_SID` : Your Twilio "account SID" - it's like your username for the Twilio API.  This and the auth token (below) can be found [in the console](https://www.twilio.com/console).
+* `TWILIO_AUTH_TOKEN` : Your Twilio "auth token" - it's your password for the Twilio API.  This and the account SID (above) can be found [in the console](https://www.twilio.com/console).
+* `TWILIO_PHONE_NUMBER` : A Twilio number that you own, that can be used for making calls and sending messages.  You can find a list of phone numbers you control (and buy another one, if necessary) [in the console](https://www.twilio.com/console/phone-numbers/incoming).
 
 For Mac and Linux, environment variables can be set by opening a terminal window and typing the following three commands - replace all the characters after the `=` with values from your Twilio account:
 
@@ -30,14 +30,18 @@ On Windows, the easiest way to set permanent environment variables (as of Window
 
 [Download the project source code directly](https://github.com/twilio/starter-python/archive/master.zip) or [clone the repository on GitHub](https://github.com/twilio/starter-python).  Navigate to the folder with the source code on your machine in a terminal window.
 
-You will first need to install the application's dependencies. To install them  manually, type the following commands in your terminal:
+From there we recommend creating a [virtualenv](https://docs.python.org/3/library/venv.html) and activating it to avoid installing dependencies globaly on your computer.
 
-    pip install twilio
-    pip install flask
+    python -m venv venv
+    source venv/bin/activate
+
+You will need to install the application's dependencies, type the following commands in your terminal:
+
+    pip install -r requirements.txt
 
 Now, you should be able to launch the application.  From your terminal, run `python app.py`.  This should launch your sinatra application on port 5000 - [visit that URL on your local host](http://localhost:5000/).  Enter your mobile number in the fields provided, and test both SMS text messages and phone calls being sent to the mobile number you provide.  The web UI should look something like this:
 
-![python guild](http://demo.kevinwhinnery.com/upload/Welcome_to_the_Python_Guild%21-20130827-150203.png)
+![python guild](https://raw.githubusercontent.com/twilio/starter-python/master/static/python_shield256.png)
 
 ## Begin Questing!
 This is but your first step into a larger world.  [Return to TwilioQuest](http://quest.twilio.com) to continue your adventure.  Huzzah!
