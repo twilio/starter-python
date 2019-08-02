@@ -1,20 +1,17 @@
 import os
 
-from flask import Flask
-from flask import Response
-from flask import request
-from flask import render_template
-from twilio import twiml
-from twilio.rest import TwilioRestClient
+from flask import Flask, Response, request, render_template
+from twilio.twiml.voice_response import VoiceResponse
+from twilio.rest import Client
 
 # Pull in configuration from system environment variables
 TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID')
 TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN')
-TWILIO_NUMBER = os.environ.get('TWILIO_NUMBER')
+TWILIO_PHONE_NUMBER = os.environ.get('TWILIO_PHONE_NUMBER')
 
 # create an authenticated client that can make requests to Twilio for your
 # account.
-client = TwilioRestClient(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
 # Create a Flask web app
 app = Flask(__name__)
@@ -29,9 +26,11 @@ def index():
 @app.route('/message', methods=['POST'])
 def message():
     # Send a text message to the number provided
-    message = client.sms.messages.create(to=request.form['to'],
-                                         from_=TWILIO_NUMBER,
-                                         body='Good luck on your Twilio quest!')
+    message = client.messages.create(
+        to=request.form['to'],
+        from_=TWILIO_PHONE_NUMBER,
+        body='Good luck on your Twilio quest!'
+    )
 
     # Return a message indicating the text message is enroute
     return 'Message on the way!'
@@ -41,8 +40,11 @@ def message():
 @app.route('/call', methods=['POST'])
 def call():
     # Make an outbound call to the provided number from your Twilio number
-    call = client.calls.create(to=request.form['to'], from_=TWILIO_NUMBER, 
-                               url='http://twimlets.com/message?Message%5B0%5D=http://demo.kevinwhinnery.com/audio/zelda.mp3')
+    call = client.calls.create(
+        to=request.form['to'],
+        from_=TWILIO_PHONE_NUMBER, 
+        url='http://demo.twilio.com/docs/voice.xml'
+    )
 
     # Return a message indicating the call is coming
     return 'Call inbound!'
@@ -50,7 +52,7 @@ def call():
 # Generate TwiML instructions for an outbound call
 @app.route('/hello')
 def hello():
-    response = twiml.Response()
+    response = VoiceResponse()
     response.say('Hello there! You have successfully configured a web hook.')
     response.say('Good luck on your Twilio quest!', voice='woman')
     return Response(str(response), mimetype='text/xml')
