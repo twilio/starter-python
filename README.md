@@ -13,32 +13,32 @@ Before you can run this project, you will need to set three system environment v
 * `TWILIO_PHONE_NUMBER` : A Twilio number that you own, that can be used for making calls and sending messages.  You can find a list of phone numbers you control (and buy another one, if necessary) [in the console](https://www.twilio.com/console/phone-numbers/incoming).
 
 For Mac and Linux, environment variables can be set by opening a terminal window and typing the following three commands - replace all the characters after the `=` with values from your Twilio account:
-
+```
     export TWILIO_ACCOUNT_SID=ACXXXXXXXXX
     export TWILIO_AUTH_TOKEN=XXXXXXXXX
     export TWILIO_PHONE_NUMBER=+16518675309
-
+```
 On Windows, the easiest way to set permanent environment variables (as of Windows 8) is using the `setx` command.  Note that there is no `=`, just the key and value separated by a space:
-
+```
     setx TWILIO_ACCOUNT_SID ACXXXXXXXXX
     setx TWILIO_AUTH_TOKEN XXXXXXXXX
     setx TWILIO_PHONE_NUMBER +16518675309
-
+```
 ## Running the application
 
 1. Clone this repository. Navigate to the folder with the source code on your machine in a terminal window.
 
 1. From there we recommend creating a [virtualenv](https://docs.python.org/3/library/venv.html) and activating it to avoid installing dependencies globaly on your computer.
 
-    python -m venv venv
-    source venv/bin/activate
+    `virtualenv -p python3 env`
+    `source env/bin/activate`
 
 1. Install dependencies:
 
-    pip install -r requirements.txt
+    `pip install -r requirements.txt`
 
 1. Run the web app:
-    python app.py
+    `python app.py`
 
 1. Open the app in your [browser](http://localhost:5000/) 
 
