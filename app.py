@@ -54,7 +54,7 @@ def call():
 
 
 # Generate TwiML instructions for an outbound call
-@app.route('/hello')
+@app.route('/hello', methods=['GET', 'POST'])
 def hello():
     response = VoiceResponse()
     response.say('Hello there! You have successfully configured a web hook.')
