@@ -29,9 +29,10 @@ On Windows, the easiest way to set permanent environment variables (as of Window
 1. Clone this repository. Navigate to the folder with the source code on your machine in a terminal window.
 
 1. From there we recommend creating a [virtualenv](https://docs.python.org/3/library/venv.html) and activating it to avoid installing dependencies globaly on your computer.
-
-    `virtualenv -p python3 env`
-    `source env/bin/activate`
+```
+    virtualenv -p python3 env
+    source env/bin/activate
+```
 
 1. Install dependencies:
 
